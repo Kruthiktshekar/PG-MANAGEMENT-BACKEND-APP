@@ -9,6 +9,8 @@ const pgController = {}
 pgController.create = (req,res) => {
   const data = req.body
   const pg = new Pg(pg)
+  pg.ownerId = req.owner.id
+  pg.save()
   .then((pg)=>{
     res.json(pg)
  })
